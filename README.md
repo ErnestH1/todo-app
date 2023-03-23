@@ -44,7 +44,8 @@ Each task in the list includes the task text and two buttons for editing and del
 ## Conclusion
 
 This simple todo list app is a great starting point for learning web development with React. It demonstrates basic concepts such as state management, component lifecycle, and handling user input.
-Technologies Used
+
+### Technologies Used
 
 - React
 - CSS
