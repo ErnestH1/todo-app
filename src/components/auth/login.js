@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './LoginSignup.css';
 
 const LoginSignup = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -23,30 +24,34 @@ const LoginSignup = () => {
   };
 
   return (
-    <div>
-      <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
+    <div className="login-signup-container">
+      <h2 className="form-title">{isLogin ? 'Login' : 'Sign Up'}</h2>
+      <form className="form-container" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="username" className="form-label">Username:</label>
           <input
             type="text"
             id="username"
+            className="form-control"
             value={username}
             onChange={handleUsernameChange}
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className="form-group">
+          <label htmlFor="password" className="form-label">Password:</label>
           <input
             type="password"
             id="password"
+            className="form-control"
             value={password}
             onChange={handlePasswordChange}
           />
         </div>
-        <button type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
+        <button type="submit" className="form-btn">
+          {isLogin ? 'Login' : 'Sign Up'}
+        </button>
       </form>
-      <button onClick={handleToggle}>
+      <button className="toggle-btn" onClick={handleToggle}>
         {isLogin ? 'Create an account' : 'Already have an account?'}
       </button>
     </div>

@@ -5,7 +5,7 @@ function Logout() {
   const history = useHistory();
 
   useEffect(() => {
-    // Call your logout API or clear user token from local storage
+    // Call your logout API 
     // ...
 
     // Redirect to login page
