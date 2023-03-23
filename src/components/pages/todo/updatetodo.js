@@ -7,7 +7,7 @@ function UpdateTodo() {
   const [message, setMessage] = useState("");
 
   const fetchTodos = () => {
-    fetch("https://example.com/api/todos")
+    fetch("https://api.npoint.io/fb001823132110e7add3")
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -30,7 +30,7 @@ function UpdateTodo() {
 
   const handleUpdate = (event) => {
     event.preventDefault();
-    fetch(`https://example.com/api/todos/${editingTodo.id}`, {
+    fetch(`https://api.npoint.io/fb001823132110e7add3/${editingTodo.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: updatedTaskName }),

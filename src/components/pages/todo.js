@@ -1,57 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import './Todo.css';
 
 function Todo() {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState('');
+  const [tasks, setTasks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/todos')
-      .then(response => response.json())
-      .then(data => setTodos(data))
-      .catch(error => console.log(error));
+    const fetchTasks = async () => {
+      try {
+        const response = await fetch("https://api.npoint.io/fb001823132110e7add3");
+        if (!response.ok) {
+          throw new Error("Failed to fetch tasks.");
+        }
+        const data = await response.json();
+        setTasks(data);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000); // set loading to false after 1 second
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchTasks();
   }, []);
 
-  const handleNewTodoChange = (event) => {
-    setNewTodo(event.target.value);
-  };
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
-  const handleNewTodoSubmit = (event) => {
-    event.preventDefault();
-    const data = { title: newTodo };
-    fetch('/api/todos', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-      .then(response => response.json())
-      .then(data => {
-        setTodos([...todos, data]);
-        setNewTodo('');
-      })
-      .catch(error => console.log(error));
-  };
-
-  const handleTodoDelete = (id) => {
-    fetch(`/api/todos/${id}`, {
-      method: 'DELETE',
-    })
-      .then(() => setTodos(todos.filter(todo => todo.id !== id)))
-      .catch(error => console.log(error));
-  };
+  if (tasks.length === 0) {
+    return <p>No tasks found.</p>;
+  }
 
   return (
-    <div>
-      <h1>Todo App</h1>
-      <form onSubmit={handleNewTodoSubmit}>
-        <input type="text" value={newTodo} onChange={handleNewTodoChange} />
-        <button type="submit">Add Todo</button>
-      </form>
-      <ul>
-        {todos.map(todo => (
-          <li key={todo.id}>
-            {todo.title}
-            <button onClick={() => handleTodoDelete(todo.id)}>Delete</button>
-          </li>
+    <div className="todo-container">
+      <h2>Todo List</h2>
+      <ul className="task-list">
+        {tasks.map((task) => (
+          <li key={task.id} className="task-item">{task.name}</li>
         ))}
       </ul>
     </div>

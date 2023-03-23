@@ -7,7 +7,7 @@ function DeleteTodo() {
 
   const fetchTodos = async () => {
     try {
-      const response = await fetch("https://example.com/api/todos");
+      const response = await fetch("https://api.npoint.io/fb001823132110e7add3");
       if (response.ok) {
         const todos = await response.json();
         setTodos(todos);
@@ -22,7 +22,7 @@ function DeleteTodo() {
   const handleDelete = async (todo) => {
     try {
       const response = await fetch(
-        `https://example.com/api/todos/${todo.id}`,
+        `https://api.npoint.io/fb001823132110e7add3/${todo.id}`,
         {
           method: "DELETE"
         }
