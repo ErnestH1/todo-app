@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./UpdateTodo.css";
 
 function UpdateTodo() {
   const [todos, setTodos] = useState([]);
@@ -61,30 +62,29 @@ function UpdateTodo() {
   }, []);
 
   return (
-    <div>
+    <div className="UpdateTodo">
       <h2>Update Todo</h2>
       {message && <p>{message}</p>}
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <li key={todo.id} className="card">
             {editingTodo && editingTodo.id === todo.id ? (
-              <form onSubmit={handleUpdate}>
+              <form onSubmit={handleUpdate} className="card__item">
                 <input
                   type="text"
                   value={updatedTaskName}
                   onChange={(event) => setUpdatedTaskName(event.target.value)}
+                  className="card__text"
                 />
-                <button type="submit">Update</button>
-                <button type="button" onClick={() => setEditingTodo(null)}>
+                <button type="submit" className="card__button card__button--update">Update</button>
+                <button type="button" onClick={() => setEditingTodo(null)} className="card__button card__button--cancel">
                   Cancel
                 </button>
               </form>
             ) : (
-              <div>
-                <span>{todo.name}</span>
-                <button type="button" onClick={() => handleEdit(todo)}>
-                  Edit
-                </button>
+              <div className="card__item">
+                <span className="card__text">{todo.name}</span>
+                <button type="button" onClick={() => handleEdit(todo)} className="card__button card__button--edit">Edit</button>
               </div>
             )}
           </li>
