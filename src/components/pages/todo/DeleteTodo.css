@@ -1,0 +1,107 @@
+/* Container for the delete todo component */
+.delete-todo-container {
+    max-width: 500px;
+    margin: 50px auto 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  
+  /* Title */
+  .delete-todo-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Message */
+  .delete-todo-message {
+    margin-bottom: 10px;
+  }
+  
+  /* List of todos */
+  .delete-todo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  /* Individual todo item */
+  .delete-todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    margin-bottom: 40px;
+  }
+  
+  /* Name of todo */
+  .delete-todo-name {
+    flex-grow: 1;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Delete button */
+  .delete-todo-delete-button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: -15px;
+  }
+  
+  .delete-todo-delete-button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Confirm delete message */
+  .delete-todo-confirm-message {
+    font-style: italic;
+    margin-right: 10px;
+  }
+  
+  /* Yes button */
+  .delete-todo-yes-button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .delete-todo-yes-button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* No button */
+  .delete-todo-no-button {
+    background-color: #ccc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .delete-todo-no-button:hover {
+    background-color: #bbb;
+  }
+  

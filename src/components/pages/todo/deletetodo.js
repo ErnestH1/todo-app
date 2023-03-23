@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './DeleteTodo.css'
 
 function DeleteTodo() {
   const [todos, setTodos] = useState([]);
@@ -45,26 +46,40 @@ function DeleteTodo() {
   }, []);
 
   return (
-    <div>
-      <h2>Delete Todo</h2>
-      {message && <p>{message}</p>}
-      <ul>
+    <div className="delete-todo-container">
+      <h2 className="delete-todo-title">Delete Todo</h2>
+      {message && <p className="delete-todo-message">{message}</p>}
+      <ul className="delete-todo-list">
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <li key={todo.id} className="delete-todo-item">
             {deletingTodo && deletingTodo.id === todo.id ? (
-              <div>
-                <span>Are you sure you want to delete "{todo.name}"?</span>
-                <button type="button" onClick={() => handleDelete(todo)}>
+              <div className="delete-confirmation">
+                <span className="delete-todo-confirm-message">
+                  Are you sure you want to delete "{todo.name}"?
+                </span>
+                <button
+                  type="button"
+                  className="delete-todo-yes-button"
+                  onClick={() => handleDelete(todo)}
+                >
                   Yes
                 </button>
-                <button type="button" onClick={() => setDeletingTodo(null)}>
+                <button
+                  type="button"
+                  className="delete-todo-no-button"
+                  onClick={() => setDeletingTodo(null)}
+                >
                   No
                 </button>
               </div>
             ) : (
-              <div>
-                <span>{todo.name}</span>
-                <button type="button" onClick={() => setDeletingTodo(todo)}>
+              <div className="delete-todo-content">
+                <span className="delete-todo-name">{todo.name}</span>
+                <button
+                  type="button"
+                  className="delete-todo-delete-button"
+                  onClick={() => setDeletingTodo(todo)}
+                >
                   Delete
                 </button>
               </div>
