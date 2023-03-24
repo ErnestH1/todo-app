@@ -7,7 +7,7 @@ function AddTodo() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const response = fetch("https://example.com/api/todos", {
+    fetch("https://api.npoint.io/fb001823132110e7add3", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: taskName }),
@@ -24,6 +24,7 @@ function AddTodo() {
         setMessage("Failed to communicate with the server.");
       });
   };
+  
 
   return (
     <div className="add-todo-container ">
