@@ -20,7 +20,7 @@ A simple web application for managing a todo list.
 
         npm start
 
-5. Navigate to http://localhost:3000 to view the app in the browser
+5. Navigate to http://localhost:3000 to view the app in the browser or follow the link   https://main--dulcet-licorice-5cd9c4.netlify.app/ to view the deployed site
 
    <br>
 ## Description and Features
@@ -36,10 +36,18 @@ Each task in the list includes the task text and two buttons for editing and del
 
 ### Features:
 
+- Login
+<img src="src/images/login.png" alt="Login/Signup">
+
 1. Lists all existing tasks 
+<img src="src/images/list.png" alt="All tasks">
+
 2. Add a new task to the todo list
+<img src="src/images/add-task.png" alt="Add task">
 3. Edit an existing task
+<img src="src/images/update-task.png" alt="Update tasks">
 4. Delete a task from the todo list
+<img src="src/images/delete-task.png" alt="Delete tasks">
 
 ## Conclusion
 
