@@ -13,7 +13,8 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a className="nav-link dropdown-toggle" href="https://www.example.com" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
                 Todo
               </a>
               <ul className="dropdown-menu">
